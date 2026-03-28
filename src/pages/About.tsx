@@ -18,18 +18,18 @@ const fadeUp = {
 };
 
 const units = [
-  { name: "Anão Guerreiro", role: "Infantaria pesada", desc: "Resistentes e implacáveis. Anões são a linha de frente que não recua. Suas armaduras de aço e machados de guerra cortam qualquer formação inimiga.", image: unitDwarf },
+  { name: "Anão Guerreiro", role: "Infantaria de ataque", desc: "Resistentes e implacáveis. Anões são a linha de frente que não recua. Suas armaduras de aço e machados de guerra cortam qualquer formação inimiga.", image: unitDwarf },
   { name: "Arqueiro Elfo", role: "Ataque à distância", desc: "Precisão mortal a longas distâncias. Os elfos dominam florestas e colinas, transformando terreno elevado em vantagem letal.", image: unitElf },
   { name: "Mago Humano", role: "Suporte arcano", desc: "Mestres das artes arcanas, capazes de virar batalhas inteiras com feitiços devastadores. Frágeis, mas indispensáveis.", image: unitMage },
-  { name: "Rei Comandante", role: "Líder de exército", desc: "Sua presença inspira tropas e desbloqueia formações especiais. Perder o Rei pode significar a ruína do seu domínio.", image: unitKing },
+  { name: "Suserano", role: "Conquistador", desc: "Lorde nobre responsável pela conquista de novos territórios. Sua liderança expande as fronteiras do domínio e assegura a posse de terras recém-tomadas.", image: unitKing },
   { name: "Balista de Cerco", role: "Artilharia", desc: "Máquina de destruição capaz de derrubar muralhas e dizimar formações a longa distância. Lenta, mas devastadora.", image: unitBallista },
-  { name: "Grifo Montado", role: "Cavalaria aérea", desc: "Unidade de elite que sobrevoa o campo de batalha. Ideal para flanquear, reconhecer e atacar pontos vulneráveis.", image: unitGriffin },
+  { name: "Grifo Montado", role: "Apoio rápido", desc: "Unidade ágil de escolta e apoio que sobrevoa o campo de batalha sem sofrer penalidades de terreno. Ideal para reforçar posições e escoltar tropas vulneráveis.", image: unitGriffin },
 ];
 
 const worldFeatures = [
-  { icon: Hexagon, title: "Tiles Hexagonais", desc: "O mundo de Dominus é composto por milhares de hexágonos interconectados. Cada tile possui recursos, terreno e valor estratégico únicos." },
-  { icon: Map, title: "Biomas Dinâmicos", desc: "Florestas densas reduzem a velocidade de cavalaria. Montanhas favorecem arqueiros. Pântanos debilitam unidades pesadas. O terreno é sua arma — ou seu inimigo." },
-  { icon: Globe, title: "Mundos Disputados", desc: "Cada servidor é um mundo completo com continentes, rotas comerciais e pontos estratégicos. Guildas disputam o controle total do mapa." },
+  { icon: Hexagon, title: "Tiles Hexagonais", desc: "Os campos hexagonais hospedam inicialmente apenas aldeias iniciais e biomas. Cada bioma oferece um nível diferente de passagem para o trânsito de tropas." },
+  { icon: Map, title: "Biomas & Terreno", desc: "Campos verdejantes são simples de percorrer. Areias de deserto e rios profundos atrasam certas tropas. Pântanos e florestas densas oferecem resistência extra. Cadeias de montanhas e oceanos são intransponíveis." },
+  { icon: Globe, title: "Mundos Únicos", desc: "Existem vários mundos em Dominus, cada um separado do outro. Criaturas místicas, artes arcanas ou táticas de guerra podem ou não existir em cada mundo, e as formações de terreno variam — trazendo uma experiência única." },
 ];
 
 const guildFeatures = [
@@ -138,7 +138,7 @@ const About = () => {
               <span className="text-primary">Unidades</span> de Combate
             </h2>
             <p className="font-body text-lg text-muted-foreground mt-3">
-              Cada unidade possui forças e fraquezas. A composição do seu exército define sua estratégia.
+              As unidades de Dominus são únicas a seu objetivo — desde ataque devastador na composição certa até defesa impenetrável.
             </p>
             <div className="mt-4 h-px w-48 mx-auto border-ornate border-t" />
           </motion.div>
