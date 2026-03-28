@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex items-center gap-2">
           <Shield className="w-5 h-5 text-primary" />
           <span className="font-display text-sm font-semibold uppercase tracking-widest text-foreground">
-            Reinos de Ferro & Fogo
+            Dominus
           </span>
         </div>
         <div className="flex gap-6 text-sm text-muted-foreground font-body">
@@ -17,7 +17,7 @@ const Footer = () => {
           <a href="#" className="hover:text-primary transition-colors">Discord</a>
         </div>
         <p className="text-xs text-muted-foreground">
-          © 2026 Todos os direitos reservados.
+          © 2026 Dominus. Todos os direitos reservados.
         </p>
       </div>
     </footer>

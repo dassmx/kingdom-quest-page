@@ -9,7 +9,7 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <img
           src={heroBg}
-          alt="Castelo medieval épico ao pôr do sol"
+          alt="Mundo medieval vasto com castelos e biomas"
           className="w-full h-full object-cover"
           width={1920}
           height={1080}
@@ -32,14 +32,13 @@ const HeroSection = () => {
           </div>
 
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-wider text-foreground text-gold-glow uppercase leading-tight">
-            Reinos de
-            <br />
-            <span className="text-primary">Ferro & Fogo</span>
+            Dominus
           </h1>
 
           <p className="font-body text-lg md:text-xl text-secondary-foreground mt-6 max-w-2xl mx-auto leading-relaxed">
-            Conquiste terras, forje alianças e lidere exércitos em um mundo medieval
-            implacável. Jogue diretamente no seu navegador — sem downloads.
+            Conquiste territórios hexagonais, forme guildas implacáveis e comande
+            exércitos em um mundo medieval vasto. Jogue direto no navegador —
+            sem downloads, sem Pay to Win.
           </p>
         </motion.div>
 
@@ -67,7 +66,7 @@ const HeroSection = () => {
         >
           {[
             { value: "50K+", label: "Jogadores" },
-            { value: "120+", label: "Reinos" },
+            { value: "200+", label: "Guildas" },
             { value: "∞", label: "Batalhas" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">

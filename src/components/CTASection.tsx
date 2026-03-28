@@ -17,7 +17,7 @@ const CTASection = () => {
         </h2>
         <p className="font-body text-lg text-secondary-foreground mt-4 max-w-xl mx-auto">
           Entre no campo de batalha. Gratuito para jogar, direto no navegador.
-          Sem downloads, sem espera.
+          Sem downloads, sem Pay to Win — apenas estratégia pura.
         </p>
         <div className="mt-4 h-px w-48 mx-auto border-ornate border-t" />
 
