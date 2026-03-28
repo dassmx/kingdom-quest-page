@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, Swords } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
@@ -52,9 +53,12 @@ const HeroSection = () => {
             <Swords className="inline w-5 h-5 mr-2 -mt-0.5" />
             Jogar Agora
           </button>
-          <button className="px-8 py-4 border border-primary/40 text-primary font-display text-lg font-semibold uppercase tracking-widest transition-all duration-300 hover:bg-primary/10 hover:border-primary">
+          <Link
+            to="/sobre"
+            className="px-8 py-4 border border-primary/40 text-primary font-display text-lg font-semibold uppercase tracking-widest transition-all duration-300 hover:bg-primary/10 hover:border-primary text-center"
+          >
             Saiba Mais
-          </button>
+          </Link>
         </motion.div>
 
         {/* Stats */}
