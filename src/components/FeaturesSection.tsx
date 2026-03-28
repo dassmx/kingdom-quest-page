@@ -1,36 +1,52 @@
 import { motion } from "framer-motion";
-import { Sword, Castle, Users, Crown, Map, Flame } from "lucide-react";
+import { Sword, Castle, Users, Map, ShieldOff, Hexagon } from "lucide-react";
+import unitDwarf from "@/assets/unit-dwarf.png";
+import unitElf from "@/assets/unit-elf.png";
+import unitMage from "@/assets/unit-mage.png";
+import unitKing from "@/assets/unit-king.png";
 
 const features = [
   {
     icon: Sword,
     title: "Combate Tático",
-    description: "Comande tropas em batalhas épicas com sistema de combate estratégico em tempo real.",
+    description: "Comande anões guerreiros, arqueiros elfos e magos humanos em batalhas estratégicas onde cada unidade faz a diferença.",
+    image: unitDwarf,
+    imageAlt: "Anão guerreiro com machado de batalha",
   },
   {
     icon: Castle,
-    title: "Construa seu Reino",
-    description: "Erga fortalezas, desenvolva cidades e fortifique suas muralhas contra invasores.",
+    title: "Construa seu Domínio",
+    description: "Erga fortalezas, desenvolva cidades e fortifique suas muralhas. Seu território é sua força.",
+    image: unitKing,
+    imageAlt: "Rei em armadura ornamentada",
   },
   {
     icon: Users,
-    title: "Alianças & Traições",
-    description: "Forme alianças poderosas ou traia seus aliados — a política medieval é impiedosa.",
+    title: "Guildas & Diplomacia",
+    description: "Forme guildas poderosas que podem liderar mundos inteiros pela diplomacia ou pela força das armas.",
+    image: unitElf,
+    imageAlt: "Arqueiro elfo com arco longo",
   },
   {
-    icon: Crown,
-    title: "Ascenda ao Trono",
-    description: "Dispute o título de Rei Supremo em eventos sazonais com milhares de jogadores.",
+    icon: Hexagon,
+    title: "Mundo Hexagonal",
+    description: "Explore um mapa continental em tiles hexagonais com biomas que influenciam diretamente a movimentação das suas tropas.",
+    image: null,
+    imageAlt: "",
   },
   {
     icon: Map,
-    title: "Mundo Vasto",
-    description: "Explore um mapa continental com biomas únicos, masmorras e territórios ocultos.",
+    title: "Biomas Estratégicos",
+    description: "Florestas, montanhas, desertos e pântanos — cada bioma altera o campo de batalha e exige táticas diferentes.",
+    image: unitMage,
+    imageAlt: "Mago humano com cajado arcano",
   },
   {
-    icon: Flame,
-    title: "Cercos Épicos",
-    description: "Lidere cercos a castelos inimigos com máquinas de guerra e estratégias devastadoras.",
+    icon: ShieldOff,
+    title: "Zero Pay to Win",
+    description: "Vitória se conquista com estratégia e aliados, não com a carteira. Dominus é justo para todos os jogadores.",
+    image: null,
+    imageAlt: "",
   },
 ];
 
@@ -55,9 +71,21 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group p-6 bg-card border border-border rounded-lg hover:border-primary/50 transition-all duration-300 hover:shadow-[var(--shadow-gold)]"
+              className="group p-6 bg-card border border-border rounded-lg hover:border-primary/50 transition-all duration-300 hover:shadow-[var(--shadow-gold)] flex flex-col"
             >
-              <feature.icon className="w-10 h-10 text-primary mb-4 group-hover:animate-flicker" />
+              <div className="flex items-start justify-between mb-4">
+                <feature.icon className="w-10 h-10 text-primary group-hover:animate-flicker" />
+                {feature.image && (
+                  <img
+                    src={feature.image}
+                    alt={feature.imageAlt}
+                    loading="lazy"
+                    width={80}
+                    height={80}
+                    className="w-20 h-20 object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                )}
+              </div>
               <h3 className="font-display text-xl font-semibold text-foreground mb-2">
                 {feature.title}
               </h3>
