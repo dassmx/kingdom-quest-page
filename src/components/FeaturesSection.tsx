@@ -4,6 +4,8 @@ import unitDwarf from "@/assets/unit-dwarf.png";
 import unitElf from "@/assets/unit-elf.png";
 import unitMage from "@/assets/unit-mage.png";
 import unitKing from "@/assets/unit-king.png";
+import unitBallista from "@/assets/unit-ballista.png";
+import unitGriffin from "@/assets/unit-griffin.png";
 
 const features = [
   {
@@ -31,8 +33,8 @@ const features = [
     icon: Hexagon,
     title: "Mundo Hexagonal",
     description: "Explore um mapa continental em tiles hexagonais com biomas que influenciam diretamente a movimentação das suas tropas.",
-    image: null,
-    imageAlt: "",
+    image: unitBallista,
+    imageAlt: "Balista reforçada de cerco",
   },
   {
     icon: Map,
@@ -45,8 +47,8 @@ const features = [
     icon: ShieldOff,
     title: "Zero Pay to Win",
     description: "Vitória se conquista com estratégia e aliados, não com a carteira. Dominus é justo para todos os jogadores.",
-    image: null,
-    imageAlt: "",
+    image: unitGriffin,
+    imageAlt: "Grifo majestoso montado por cavaleiro",
   },
 ];
 
