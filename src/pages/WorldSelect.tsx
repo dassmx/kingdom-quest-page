@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Shield, Users, Sparkles, ChevronRight, Globe, Swords, ArrowLeft } from "lucide-react";
+import { Users, Sparkles, ChevronRight, Globe, Swords, ArrowLeft, Landmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import worldMapBg from "@/assets/world-map-bg.jpg";
@@ -11,7 +11,6 @@ interface WorldInfo {
   players: string;
   status: "aberto" | "pre-inscricao" | "fechado";
   description: string;
-  difficulty: "Iniciante" | "Intermediário" | "Avançado" | "Veterano";
 }
 
 const worlds: WorldInfo[] = [
@@ -22,7 +21,6 @@ const worlds: WorldInfo[] = [
     players: "~1.200",
     status: "aberto",
     description: "Um mundo equilibrado, ideal para novos comandantes provarem seu valor em batalhas estratégicas e forjarem alianças duradouras.",
-    difficulty: "Iniciante",
   },
   {
     id: "w2",
@@ -31,7 +29,6 @@ const worlds: WorldInfo[] = [
     players: "~800",
     status: "aberto",
     description: "Terras hostis onde apenas os mais astutos sobrevivem. Recursos são disputados com sangue e aço.",
-    difficulty: "Avançado",
   },
   {
     id: "w3",
@@ -40,7 +37,6 @@ const worlds: WorldInfo[] = [
     players: "~950",
     status: "aberto",
     description: "Um mundo onde a magia pulsa em cada hexágono. As artes arcanas são o diferencial entre a glória e a ruína.",
-    difficulty: "Intermediário",
   },
   {
     id: "w4",
@@ -49,40 +45,20 @@ const worlds: WorldInfo[] = [
     players: "~350",
     status: "pre-inscricao",
     description: "Mundo recém-aberto. Terras virgens aguardam os primeiros conquistadores. Estabeleça seu domínio antes dos demais.",
-    difficulty: "Veterano",
   },
 ];
 
-const mysticalContent = [
-  {
-    structure: "Conclave Arcano",
-    structureDesc: "Antiga academia de artes ocultas",
-    unit: "Magos",
-    unitDesc: "Conjuradores de feitiços devastadores em área. Lentos, mas letais à distância.",
-    icon: Sparkles,
-  },
-  {
-    structure: "Legião das Rédeas",
-    structureDesc: "Estábulo de criaturas aladas",
-    unit: "Grifos Montados",
-    unitDesc: "Unidades de apoio rápido e escolta. Ignoram penalidades de terreno ao se deslocar.",
-    icon: Shield,
-  },
-  {
-    structure: "Oficina de Runas",
-    structureDesc: "Oficina de construtos encantados",
-    unit: "Golens de Pedra",
-    unitDesc: "Construtos colossais de defesa. Resistentes, mas extremamente lentos.",
-    icon: Swords,
-  },
+const mysticalUnits = [
+  { name: "Magos", icon: Sparkles },
+  { name: "Grifos Montados", icon: Swords },
+  { name: "Golens de Pedra", icon: Swords },
 ];
 
-const difficultyColor: Record<string, string> = {
-  Iniciante: "text-green-400",
-  Intermediário: "text-primary",
-  Avançado: "text-accent",
-  Veterano: "text-red-400",
-};
+const mysticalStructures = [
+  { name: "Conclave Arcano", desc: "Treina Magos", icon: Landmark },
+  { name: "Legião das Rédeas", desc: "Treina Grifos", icon: Landmark },
+  { name: "Oficina de Runas", desc: "Treina Golens", icon: Landmark },
+];
 
 const statusLabel: Record<string, { text: string; className: string }> = {
   aberto: { text: "Aberto", className: "bg-green-500/20 text-green-400 border-green-500/30" },
@@ -97,21 +73,18 @@ const WorldSelect = () => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Background art */}
-      <div className="absolute inset-0">
-        <img
-          src={worldMapBg}
-          alt=""
-          className="w-full h-full object-cover opacity-[0.07]"
-          width={1920}
-          height={1080}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/60" />
-      </div>
+      <img
+        src={worldMapBg}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover opacity-15"
+        width={1920}
+        height={1080}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/70" />
 
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 py-8">
-        {/* Header */}
         <Link
           to="/auth"
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-6 font-body text-sm"
@@ -133,7 +106,7 @@ const WorldSelect = () => {
         </div>
 
         <div className="grid lg:grid-cols-5 gap-6">
-          {/* World list — compact */}
+          {/* World list */}
           <div className="lg:col-span-2 space-y-2">
             {worlds.map((world) => {
               const status = statusLabel[world.status];
@@ -170,60 +143,52 @@ const WorldSelect = () => {
               <div className="bg-card border border-border rounded-sm p-6 relative">
                 <div className="absolute top-0 left-4 right-4 h-px border-ornate" />
 
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <h2 className="font-display text-xl uppercase tracking-wider text-foreground">
-                      {selected.name}
-                    </h2>
-                    <p className="text-sm text-muted-foreground font-body">{selected.subtitle}</p>
-                  </div>
-                  <span className={`text-sm font-display uppercase tracking-wider ${difficultyColor[selected.difficulty]}`}>
-                    {selected.difficulty}
-                  </span>
+                <div className="mb-4">
+                  <h2 className="font-display text-xl uppercase tracking-wider text-foreground">
+                    {selected.name}
+                  </h2>
+                  <p className="text-sm text-muted-foreground font-body">{selected.subtitle}</p>
                 </div>
 
                 <p className="text-muted-foreground font-body text-sm leading-relaxed mb-6">
                   {selected.description}
                 </p>
 
-                {/* Mystical units & structures */}
-                <div className="mb-6">
-                  <h4 className="font-display text-xs uppercase tracking-wider text-foreground mb-3 flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-primary" />
-                    Unidades & Estruturas Místicas
-                  </h4>
-                  <div className="grid gap-3">
-                    {mysticalContent.map((item) => (
-                      <div
-                        key={item.unit}
-                        className="bg-secondary/50 border border-border rounded-sm p-3 flex items-start gap-3"
-                      >
-                        <item.icon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="font-display text-xs uppercase tracking-wider text-foreground">
-                              {item.unit}
-                            </span>
-                            <span className="text-[10px] text-muted-foreground font-body">
-                              treinados no
-                            </span>
-                            <span className="font-display text-[11px] uppercase tracking-wider text-primary">
-                              {item.structure}
-                            </span>
-                          </div>
-                          <p className="text-xs text-muted-foreground/80 font-body mt-1">
-                            {item.unitDesc}
-                          </p>
-                          <p className="text-[10px] text-muted-foreground/50 font-body mt-0.5 italic">
-                            {item.structureDesc}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
+                {/* Units & Structures side by side */}
+                <div className="grid sm:grid-cols-2 gap-4 mb-6">
+                  <div className="bg-secondary/50 border border-border rounded-sm p-4">
+                    <h4 className="font-display text-xs uppercase tracking-wider text-foreground mb-3 flex items-center gap-2">
+                      <Swords className="w-4 h-4 text-primary" />
+                      Unidades Místicas
+                    </h4>
+                    <ul className="space-y-1.5">
+                      {mysticalUnits.map((u) => (
+                        <li key={u.name} className="text-xs text-muted-foreground font-body flex items-center gap-1.5">
+                          <u.icon className="w-3 h-3 text-primary/60" />
+                          {u.name}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-secondary/50 border border-border rounded-sm p-4">
+                    <h4 className="font-display text-xs uppercase tracking-wider text-foreground mb-3 flex items-center gap-2">
+                      <Landmark className="w-4 h-4 text-primary" />
+                      Estruturas de Treinamento
+                    </h4>
+                    <ul className="space-y-1.5">
+                      {mysticalStructures.map((s) => (
+                        <li key={s.name} className="text-xs text-muted-foreground font-body flex items-center gap-1.5">
+                          <s.icon className="w-3 h-3 text-primary/60" />
+                          <span>{s.name}</span>
+                          <span className="text-muted-foreground/50">— {s.desc}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
 
-                {/* Player count & enter */}
+                {/* Footer */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Users className="w-4 h-4" />
