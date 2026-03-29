@@ -22,10 +22,10 @@ const CTASection = () => {
         </p>
         <div className="mt-4 h-px w-48 mx-auto border-ornate border-t" />
 
-        <button className="mt-10 px-10 py-5 bg-primary text-primary-foreground font-display text-xl font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-[var(--shadow-gold)] hover:scale-105">
+        <Link to="/auth" className="mt-10 px-10 py-5 bg-primary text-primary-foreground font-display text-xl font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-[var(--shadow-gold)] hover:scale-105 inline-flex items-center justify-center">
           <Swords className="inline w-6 h-6 mr-3 -mt-1" />
           Começar a Jogar
-        </button>
+        </Link>
 
         <p className="mt-4 text-sm text-muted-foreground">
           Mais de 50.000 guerreiros já estão lutando. Junte-se a eles.
