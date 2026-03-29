@@ -49,10 +49,10 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.5 }}
           className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <button className="group relative px-8 py-4 bg-primary text-primary-foreground font-display text-lg font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-[var(--shadow-gold)] hover:scale-105">
+          <Link to="/auth" className="group relative px-8 py-4 bg-primary text-primary-foreground font-display text-lg font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-[var(--shadow-gold)] hover:scale-105 inline-flex items-center justify-center">
             <Swords className="inline w-5 h-5 mr-2 -mt-0.5" />
             Jogar Agora
-          </button>
+          </Link>
           <Link
             to="/sobre"
             className="px-8 py-4 border border-primary/40 text-primary font-display text-lg font-semibold uppercase tracking-widest transition-all duration-300 hover:bg-primary/10 hover:border-primary text-center"
