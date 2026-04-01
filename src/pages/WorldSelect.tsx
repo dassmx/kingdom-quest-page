@@ -77,11 +77,11 @@ const WorldSelect = () => {
       <img
         src={worldMapBg}
         alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-15"
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
         width={1920}
         height={1080}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/70" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/50" />
 
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
