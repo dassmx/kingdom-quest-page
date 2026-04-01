@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Compass } from "lucide-react";
 import { Users, Sparkles, ChevronRight, Globe, Swords, ArrowLeft, Landmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
