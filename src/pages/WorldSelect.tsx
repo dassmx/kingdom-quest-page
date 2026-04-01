@@ -67,8 +67,17 @@ const statusLabel: Record<string, { text: string; className: string }> = {
   fechado: { text: "Fechado", className: "bg-red-500/20 text-red-400 border-red-500/30" },
 };
 
+const regions = [
+  { value: "norte", label: "Norte" },
+  { value: "sul", label: "Sul" },
+  { value: "leste", label: "Leste" },
+  { value: "oeste", label: "Oeste" },
+  { value: "aleatorio", label: "Aleatório" },
+];
+
 const WorldSelect = () => {
   const [selectedWorld, setSelectedWorld] = useState<string | null>(null);
+  const [selectedRegion, setSelectedRegion] = useState("aleatorio");
   const selected = worlds.find((w) => w.id === selectedWorld);
 
   return (
