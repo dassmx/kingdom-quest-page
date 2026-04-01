@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Compass } from "lucide-react";
 import { Users, Sparkles, ChevronRight, Globe, Swords, ArrowLeft, Landmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -66,8 +67,17 @@ const statusLabel: Record<string, { text: string; className: string }> = {
   fechado: { text: "Fechado", className: "bg-red-500/20 text-red-400 border-red-500/30" },
 };
 
+const regions = [
+  { value: "norte", label: "Norte" },
+  { value: "sul", label: "Sul" },
+  { value: "leste", label: "Leste" },
+  { value: "oeste", label: "Oeste" },
+  { value: "aleatorio", label: "Aleatório" },
+];
+
 const WorldSelect = () => {
   const [selectedWorld, setSelectedWorld] = useState<string | null>(null);
+  const [selectedRegion, setSelectedRegion] = useState("aleatorio");
   const selected = worlds.find((w) => w.id === selectedWorld);
 
   return (
@@ -76,11 +86,11 @@ const WorldSelect = () => {
       <img
         src={worldMapBg}
         alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-15"
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
         width={1920}
         height={1080}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/70" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/50" />
 
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
@@ -189,7 +199,7 @@ const WorldSelect = () => {
                 </div>
 
                 {/* Footer */}
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between flex-wrap gap-3">
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Users className="w-4 h-4" />
                     <span className="text-sm font-body">{selected.players} jogadores</span>
@@ -197,10 +207,24 @@ const WorldSelect = () => {
                       {statusLabel[selected.status].text}
                     </span>
                   </div>
-                  <Button className="font-display uppercase tracking-widest text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm gap-2">
-                    Entrar no Mundo
-                    <ChevronRight className="w-4 h-4" />
-                  </Button>
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
+                      <Compass className="w-4 h-4 text-primary" />
+                      <select
+                        value={selectedRegion}
+                        onChange={(e) => setSelectedRegion(e.target.value)}
+                        className="bg-secondary border border-border rounded-sm px-2 py-1.5 text-xs font-display uppercase tracking-wider text-foreground focus:outline-none focus:border-primary/50 cursor-pointer"
+                      >
+                        {regions.map((r) => (
+                          <option key={r.value} value={r.value}>{r.label}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <Button className="font-display uppercase tracking-widest text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm gap-2">
+                      Entrar no Mundo
+                      <ChevronRight className="w-4 h-4" />
+                    </Button>
+                  </div>
                 </div>
 
                 <div className="absolute bottom-0 left-4 right-4 h-px border-ornate" />
