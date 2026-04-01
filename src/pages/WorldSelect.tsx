@@ -199,7 +199,7 @@ const WorldSelect = () => {
                 </div>
 
                 {/* Footer */}
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between flex-wrap gap-3">
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Users className="w-4 h-4" />
                     <span className="text-sm font-body">{selected.players} jogadores</span>
@@ -207,10 +207,24 @@ const WorldSelect = () => {
                       {statusLabel[selected.status].text}
                     </span>
                   </div>
-                  <Button className="font-display uppercase tracking-widest text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm gap-2">
-                    Entrar no Mundo
-                    <ChevronRight className="w-4 h-4" />
-                  </Button>
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
+                      <Compass className="w-4 h-4 text-primary" />
+                      <select
+                        value={selectedRegion}
+                        onChange={(e) => setSelectedRegion(e.target.value)}
+                        className="bg-secondary border border-border rounded-sm px-2 py-1.5 text-xs font-display uppercase tracking-wider text-foreground focus:outline-none focus:border-primary/50 cursor-pointer"
+                      >
+                        {regions.map((r) => (
+                          <option key={r.value} value={r.value}>{r.label}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <Button className="font-display uppercase tracking-widest text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm gap-2">
+                      Entrar no Mundo
+                      <ChevronRight className="w-4 h-4" />
+                    </Button>
+                  </div>
                 </div>
 
                 <div className="absolute bottom-0 left-4 right-4 h-px border-ornate" />
