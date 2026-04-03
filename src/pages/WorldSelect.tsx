@@ -221,7 +221,10 @@ const WorldSelect = () => {
                         ))}
                       </select>
                     </div>
-                    <Button className="font-display uppercase tracking-widest text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm gap-2">
+                    <Button
+                      onClick={() => navigate("/village")}
+                      className="font-display uppercase tracking-widest text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm gap-2"
+                    >
                       Entrar no Mundo
                       <ChevronRight className="w-4 h-4" />
                     </Button>
