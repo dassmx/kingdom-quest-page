@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import Auth from "./pages/Auth.tsx";
 import WorldSelect from "./pages/WorldSelect.tsx";
+import VillageOverview from "./pages/VillageOverview.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
