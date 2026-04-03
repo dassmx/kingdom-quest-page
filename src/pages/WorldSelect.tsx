@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Compass } from "lucide-react";
 import { Users, Sparkles, ChevronRight, Globe, Swords, ArrowLeft, Landmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import worldMapBg from "@/assets/world-map-bg.jpg";
 
 interface WorldInfo {
@@ -78,6 +78,7 @@ const regions = [
 const WorldSelect = () => {
   const [selectedWorld, setSelectedWorld] = useState<string | null>(null);
   const [selectedRegion, setSelectedRegion] = useState("aleatorio");
+  const navigate = useNavigate();
   const selected = worlds.find((w) => w.id === selectedWorld);
 
   return (
@@ -220,7 +221,10 @@ const WorldSelect = () => {
                         ))}
                       </select>
                     </div>
-                    <Button className="font-display uppercase tracking-widest text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm gap-2">
+                    <Button
+                      onClick={() => navigate("/village")}
+                      className="font-display uppercase tracking-widest text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm gap-2"
+                    >
                       Entrar no Mundo
                       <ChevronRight className="w-4 h-4" />
                     </Button>
