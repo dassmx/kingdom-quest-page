@@ -23,6 +23,7 @@ const App = () => (
           <Route path="/sobre" element={<About />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/worlds" element={<WorldSelect />} />
+          <Route path="/village" element={<VillageOverview />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
