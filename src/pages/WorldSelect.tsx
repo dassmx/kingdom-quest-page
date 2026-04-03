@@ -78,6 +78,7 @@ const regions = [
 const WorldSelect = () => {
   const [selectedWorld, setSelectedWorld] = useState<string | null>(null);
   const [selectedRegion, setSelectedRegion] = useState("aleatorio");
+  const navigate = useNavigate();
   const selected = worlds.find((w) => w.id === selectedWorld);
 
   return (
